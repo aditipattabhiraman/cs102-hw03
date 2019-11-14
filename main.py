@@ -1,4 +1,5 @@
 import sys
+from statistics import mean
 
 
 def main():
@@ -7,7 +8,15 @@ def main():
     input_file_path = sys.argv[1]
     print(f"Processing input file: {input_file_path}")
 
-    # TODO: Fill in the actual logic here!
+    with open(input_file_path, "r") as f:
+        for line in f:
+            line = line.strip("\n")
+            list_item = line.split(",")
+            hello = []
+            for i in list_item:
+                hello.append(float(i))
+                avg = mean(hello)
+            print(f"{avg} ")
 
 
 if __name__ == "__main__":
